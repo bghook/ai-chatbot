@@ -153,3 +153,35 @@ export const verifyUser = async (
     return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
   }
 };
+
+// Logout user by clearing cookies
+export const userLogout = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    // User token check
+    const user = await User.findById(res.locals.jwtData.id); // Find a user with the email
+    if (!user) {
+      return res.status(401).send("User not registered OR invalid token.");
+    }
+    if (user._id.toString() !== res.locals.jwtData.id) {
+      return res.status(401).send("Permissions did not match.");
+    }
+
+    res.clearCookie(COOKIE_NAME, {
+      path: "/",
+      domain: "localhost",
+      httpOnly: true,
+      signed: true,
+    });
+
+    return res
+      .status(200)
+      .json({ message: "OK", name: user.name, email: user.email }); // status 200: OK - send json object with users
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
+  }
+};
