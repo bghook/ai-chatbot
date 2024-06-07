@@ -13,6 +13,7 @@ const app = express();
 app.use(
   cors({
     origin: "https://ai-chatbot-front-end.vercel.app",
+    methods: ["POST", "GET"],
     credentials: true,
   }) // frontend URL
 ); // Adding the server which hosts our app to whitelist
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Remove this in production - only for development
-// app.use(morgan("dev"));
+app.use(morgan("dev"));
 
 // After we make a request to the api/v1 endpoint, handled by appRouter
 app.use("/api/v1", appRouter);
