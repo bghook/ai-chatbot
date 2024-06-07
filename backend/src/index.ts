@@ -21,6 +21,7 @@ import { connectToDatabase } from "./db/connection.js";
 // Connection and listeners
 const PORT = process.env.PORT || 5000;
 
+// TODO: Try removing the .then() part if it doesn't work
 connectToDatabase()
   .then(() => {
     app.listen(PORT, () =>
