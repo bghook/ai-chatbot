@@ -10,7 +10,9 @@ const app = express();
 
 // Middleware - functions that have access to the request and response objects
 // app.use(cors({ origin: "http://localhost:5173", credentials: true })); // Adding the server which hosts our app to whitelist
-app.use(cors({ origin: "bghook.github.io/ai-chatbot/", credentials: true })); // Adding the server which hosts our app to whitelist
+app.use(
+  cors({ origin: "https://ai-chatbot-bh.vercel.app/", credentials: true })
+); // Adding the server which hosts our app to whitelist
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 

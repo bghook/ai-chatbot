@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast";
 import axios from "axios";
 
 // axios.defaults.baseURL = "http://localhost:5000/api/v1";
-axios.defaults.baseURL = "http://bghook.github.io/ai-chatbot/api/v1";
+axios.defaults.baseURL = "https://ai-chatbot-bh.vercel.app/api/v1";
 axios.defaults.withCredentials = true; // Allows exchanging cookies between frontend and backend
 
 const theme = createTheme({
