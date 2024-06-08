@@ -3,7 +3,7 @@
   "builds": [{ "src": "*.ts", "use": "@vercel/node" }],
   "routes": [
     {
-      "src": "/api/v1/user/login",
+      "src": "/(.*)",
       "methods": ["OPTIONS"],
       "headers": {
         "Access-Control-Allow-Origin": "https://ai-chatbot-front-end.vercel.app",
@@ -11,11 +11,11 @@
         "Access-Control-Allow-Headers": "Content-Type",
         "Access-Control-Allow-Credentials": "true"
       },
-      "dest": "/api/v1/user/login"
+      "dest": "/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/",
+      "dest": "/$1",
       "headers": {
         "Access-Control-Allow-Origin": "https://ai-chatbot-front-end.vercel.app",
         "Access-Control-Allow-Credentials": "true"
