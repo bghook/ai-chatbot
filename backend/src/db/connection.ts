@@ -1,8 +1,12 @@
 import { connect, disconnect } from "mongoose";
 
 async function connectToDatabase() {
+  const url = process.env.MONGODB_URL;
+  if (!url) {
+    throw new Error("MONGODB_URL is not defined");
+  }
   try {
-    await connect(process.env.MONGODB_URL);
+    await connect(url);
   } catch (error) {
     throw new Error(`Error connecting to database: ${error}`);
   }

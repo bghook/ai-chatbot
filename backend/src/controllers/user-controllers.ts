@@ -16,6 +16,7 @@ export const getAllUsers = async (
     return res.status(200).json({ message: "OK", users }); // status 200: OK - send json object with users
   } catch (error) {
     console.log(error);
+    // @ts-ignore
     return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
   }
 };
@@ -69,6 +70,7 @@ export const userSignup = async (
       .json({ message: "OK", name: user.name, email: user.email }); // status 200: OK - send json object with users
   } catch (error) {
     console.log(error);
+    // @ts-ignore
     return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
   }
 };
@@ -125,6 +127,7 @@ export const userLogin = async (
       .json({ message: "OK", name: user.name, email: user.email }); // status 200: OK - send json object with users
   } catch (error) {
     console.log(error);
+    // @ts-ignore
     return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
   }
 };
@@ -150,6 +153,7 @@ export const verifyUser = async (
       .json({ message: "OK", name: user.name, email: user.email }); // status 200: OK - send json object with users
   } catch (error) {
     console.log(error);
+    // @ts-ignore
     return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
   }
 };
@@ -182,6 +186,7 @@ export const userLogout = async (
       .json({ message: "OK", name: user.name, email: user.email }); // status 200: OK - send json object with users
   } catch (error) {
     console.log(error);
+    // @ts-ignore
     return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
   }
 };
