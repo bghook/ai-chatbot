@@ -6,6 +6,9 @@
     "sourceMap": true,
     "outDir": "dist",
     "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "typeRoots": ["./node_modules/@types"],
     "baseUrl": ".",
     "paths": {

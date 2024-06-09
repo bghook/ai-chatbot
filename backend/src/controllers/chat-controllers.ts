@@ -31,11 +31,15 @@ export const generateChatCompletion = async (
       model: "gpt-3.5-turbo",
       messages: chats,
     });
-    user.chats.push(chatResponse.data.choices[0].message);
+    if (chatResponse.data.choices.length > 0) {
+      // @ts-ignore
+      user.chats.push(chatResponse.data.choices[0].message);
+    }
     await user.save();
     return res.status(200).json({ chats: user.chats });
   } catch (error) {
     console.log(error);
+    // @ts-ignore
     return res.status(500).json({ message: "ERROR", cause: error.message });
   }
 };
@@ -59,6 +63,7 @@ export const sendChatsToUser = async (
     return res.status(200).json({ message: "OK", chats: user.chats }); // status 200: OK - send json object with users
   } catch (error) {
     console.log(error);
+    // @ts-ignore
     return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
   }
 };
@@ -84,6 +89,7 @@ export const deleteChats = async (
     return res.status(200).json({ message: "OK" }); // status 200: OK - send json object with users
   } catch (error) {
     console.log(error);
+    // @ts-ignore
     return res.status(500).json({ message: "ERROR", cause: error.message }); // status 500: Internal Server Error - send json object with error message
   }
 };
