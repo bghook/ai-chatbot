@@ -30,7 +30,7 @@ app.use(
     ],
     methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
     credentials: true,
-    // allowedHeaders: "Content-Type, Authorization",
+    allowedHeaders: "Content-Type, Authorization, Access-Control-Allow-Origin",
     optionsSuccessStatus: 204,
   }) // frontend URL
 ); // Adding the server which hosts our app to whitelist
