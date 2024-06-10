@@ -23,6 +23,7 @@ const app = express();
 
 app.use(
   cors({
+    //origin: true,
     origin: [
       "https://ai-chatbot-front-end.vercel.app",
       "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
