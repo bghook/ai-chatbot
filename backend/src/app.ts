@@ -42,13 +42,22 @@ app.options("*", cors()); // include before other routes
 app.use(
   cors({
     //origin: true,
-    origin: "https://ai-chatbot-front-end.vercel.app",
+    origin: "http://ai-chatbot-front-end.vercel.app",
     //methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
     credentials: true,
-    //allowedHeaders: "Content-Type, Authorization",
+    allowedHeaders: "Content-Type, Authorization",
     //optionsSuccessStatus: 204,
   }) // frontend URL
 ); // Adding the server which hosts our app to whitelist
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // app.options("*", cors()); // include before other routes
 
