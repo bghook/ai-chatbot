@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const loginUser = async (email: string, password: string) => {
-  const res = await axios.post("/api/v1/user/login", { email, password });
+  const res = await axios.post("/user/login", { email, password });
   if (res.status !== 200) {
     throw new Error("Login failed.");
   }
@@ -14,7 +14,7 @@ export const signupUser = async (
   email: string,
   password: string
 ) => {
-  const res = await axios.post("/api/v1/user/signup", {
+  const res = await axios.post("/user/signup", {
     name,
     email,
     password,
@@ -27,7 +27,7 @@ export const signupUser = async (
 };
 
 export const checkAuthStatus = async () => {
-  const res = await axios.get("/api/v1/user/auth-status");
+  const res = await axios.get("/user/auth-status");
   if (res.status !== 200) {
     throw new Error("Authentication failed.");
   }
@@ -37,7 +37,7 @@ export const checkAuthStatus = async () => {
 
 // Send a chat request to the backend, response will contain full list of chat messages from user
 export const sendChatRequest = async (message: string) => {
-  const res = await axios.post("/api/v1/chat/new", { message });
+  const res = await axios.post("/chat/new", { message });
   if (res.status !== 200) {
     throw new Error("Unable to send chat.");
   }
@@ -47,7 +47,7 @@ export const sendChatRequest = async (message: string) => {
 
 // Get all chat messages from the backend
 export const getUserChats = async () => {
-  const res = await axios.get("/api/v1/chat/all-chats");
+  const res = await axios.get("/chat/all-chats");
   if (res.status !== 200) {
     throw new Error("Unable to get chats.");
   }
@@ -57,7 +57,7 @@ export const getUserChats = async () => {
 
 // Delete all chat messages from the backend
 export const deleteUserChats = async () => {
-  const res = await axios.delete("/api/v1/chat/delete");
+  const res = await axios.delete("/chat/delete");
   if (res.status !== 200) {
     throw new Error("Unable to delete chats.");
   }
@@ -67,7 +67,7 @@ export const deleteUserChats = async () => {
 
 // Logout user
 export const logoutUser = async () => {
-  const res = await axios.get("/api/v1/user/logout");
+  const res = await axios.get("/user/logout");
   if (res.status !== 200) {
     throw new Error("Unable to logout.");
   }
