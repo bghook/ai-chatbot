@@ -11,17 +11,30 @@ const app = express();
 // Middleware - functions that have access to the request and response objects
 // app.use(cors({ origin: "http://localhost:5173", credentials: true })); // Adding the server which hosts our app to whitelist
 
-app.options("*", cors()); // include before other routes
+//app.options("*", cors()); // include before other routes
+
+const corsOptions = {
+  origin: "https://ai-chatbot-front-end.vercel.app",
+  methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
+  credentials: true,
+  // allowedHeaders: "Content-Type, Authorization",
+  optionsSuccessStatus: 204,
+};
 
 app.use(
   cors({
     origin: "https://ai-chatbot-front-end.vercel.app",
     methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
     credentials: true,
-    allowedHeaders: "Content-Type, Authorization",
+    // allowedHeaders: "Content-Type, Authorization",
+    optionsSuccessStatus: 204,
   }) // frontend URL
 ); // Adding the server which hosts our app to whitelist
-// app.options("*", cors()); // include before other routes
+app.options("*", cors()); // include before other routes
+
+app.get("/products/:id", cors(corsOptions), function (req, res, next) {
+  res.json({ msg: "This is CORS-enabled for only example.com." });
+});
 
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
