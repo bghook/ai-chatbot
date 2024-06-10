@@ -50,17 +50,17 @@ app.use(
   }) // frontend URL
 ); // Adding the server which hosts our app to whitelist
 
-//app.options("*", cors()); // include before other routes
+app.options("*", cors()); // include before other routes
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://ai-chatbot-front-end.vercel.app"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     "Access-Control-Allow-Origin",
+//     "https://ai-chatbot-front-end.vercel.app"
+//   );
+//   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   next();
+// });
 
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
