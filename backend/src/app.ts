@@ -62,7 +62,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.options("*", cors()); // include before other routes
+app.options("*", cors()); // include before other routes
 
 // app.use((req, res, next) => {
 //   res.setHeader(
