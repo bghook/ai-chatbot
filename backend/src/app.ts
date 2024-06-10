@@ -21,39 +21,46 @@ const app = express();
 //   optionsSuccessStatus: 204,
 // };
 
-const allowedOrigins = ["https://ai-chatbot-front-end.vercel.app"];
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    methods: "GET,POST,PUT,DELETE,HEAD,PATCH",
-    allowedHeaders: "Access-Control-Allow-Origin",
-    credentials: true,
-    //optionsSuccessStatus: 204,
-  })
-);
+// const allowedOrigins = ["https://ai-chatbot-front-end.vercel.app"];
 
 // app.use(
 //   cors({
-//     //origin: true,
-//     origin: [
-//       "https://ai-chatbot-front-end.vercel.app",
-//       "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-//     ],
-//     methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
+//     origin: (origin, callback) => {
+//       if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error("Not allowed by CORS"));
+//       }
+//     },
+//     methods: "GET,POST,PUT,DELETE,HEAD,PATCH",
+//     allowedHeaders: "Access-Control-Allow-Origin",
 //     credentials: true,
-//     allowedHeaders: "Content-Type, Authorization, Access-Control-Allow-Origin",
-//     optionsSuccessStatus: 204,
-//   }) // frontend URL
-// ); // Adding the server which hosts our app to whitelist
+//     //optionsSuccessStatus: 204,
+//   })
+// );
 
-app.options("*", cors()); // include before other routes
+app.use(
+  cors({
+    //origin: true,
+    origin: "https://ai-chatbot-front-end.vercel.app",
+    methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
+    credentials: true,
+    allowedHeaders: "Content-Type, Authorization",
+    optionsSuccessStatus: 204,
+  }) // frontend URL
+); // Adding the server which hosts our app to whitelist
+
+//app.options("*", cors()); // include before other routes
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://ai-chatbot-front-end.vercel.app"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
 
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
