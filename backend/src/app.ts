@@ -11,7 +11,7 @@ const app = express();
 // Middleware - functions that have access to the request and response objects
 // app.use(cors({ origin: "http://localhost:5173", credentials: true })); // Adding the server which hosts our app to whitelist
 
-app.options("*", cors()); // include before other routes
+// app.options("*", cors()); // include before other routes
 
 // const corsOptions = {
 //   origin: "https://ai-chatbot-front-end.vercel.app",
@@ -39,19 +39,22 @@ app.options("*", cors()); // include before other routes
 //   })
 // );
 
-app.use(
-  cors({
-    //origin: true,
-    origin: "http://ai-chatbot-front-end.vercel.app",
-    //methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
-    credentials: true,
-    allowedHeaders: "Content-Type, Authorization",
-    //optionsSuccessStatus: 204,
-  }) // frontend URL
-); // Adding the server which hosts our app to whitelist
+// app.use(
+//   cors({
+//     //origin: true,
+//     origin: "http://ai-chatbot-front-end.vercel.app",
+//     //methods: ["GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS"],
+//     credentials: true,
+//     allowedHeaders: "Content-Type, Authorization",
+//     //optionsSuccessStatus: 204,
+//   }) // frontend URL
+// ); // Adding the server which hosts our app to whitelist
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "http://ai-chatbot-front-end.vercel.app"
+  ); // update to match the domain you will make the request from
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
