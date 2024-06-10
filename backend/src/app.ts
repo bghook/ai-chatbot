@@ -62,7 +62,17 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.options("*", cors()); // include before other routes
+const corsOptions = {
+  origin: "https://ai-chatbot-front-end.vercel.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+  allowedHeaders: "Content-Type, Authorization",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Enable preflight requests
+
+//app.options("*", cors()); // include before other routes
 
 // app.use((req, res, next) => {
 //   res.setHeader(
