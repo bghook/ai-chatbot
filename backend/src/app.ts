@@ -50,17 +50,17 @@ const app = express();
 //   }) // frontend URL
 // ); // Adding the server which hosts our app to whitelist
 
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://ai-chatbot-front-end.vercel.app"
-  ); // update to match the domain you will make the request from
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://ai-chatbot-front-end.vercel.app"
+//   ); // update to match the domain you will make the request from
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
 const corsOptions = {
   origin: "https://ai-chatbot-front-end.vercel.app",
