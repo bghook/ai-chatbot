@@ -39,8 +39,8 @@ export const userSignup = async (
     // Create token and store cookie
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      // domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-      domain: "https://ai-chatbot-front-end.vercel.app",
+      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      // domain: "https://ai-chatbot-front-end.vercel.app",
       httpOnly: true,
       signed: true,
     }); // Remove previous cookie if user is logging in again
@@ -100,8 +100,8 @@ export const userLogin = async (
     // Create token and store cookie
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      // domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-      domain: "https://ai-chatbot-front-end.vercel.app",
+      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      // domain: "https://ai-chatbot-front-end.vercel.app",
       httpOnly: true,
       signed: true,
       secure: true,
@@ -186,8 +186,8 @@ export const userLogout = async (
 
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      // domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-      domain: "https://ai-chatbot-front-end.vercel.app",
+      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      // domain: "https://ai-chatbot-front-end.vercel.app",
       httpOnly: true,
       signed: true,
       secure: true,
