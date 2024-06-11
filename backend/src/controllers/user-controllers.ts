@@ -39,8 +39,8 @@ export const userSignup = async (
     // Create token and store cookie
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-      // domain: "https://frabjous-otter-64aad1.netlify.app",
+      // domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-front-end.vercel.app",
       httpOnly: true,
       signed: true,
     }); // Remove previous cookie if user is logging in again
@@ -60,11 +60,13 @@ export const userSignup = async (
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-      // domain: "https://frabjous-otter-64aad1.netlify.app",
+      // domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-front-end.vercel.app",
       expires,
       httpOnly: true,
       signed: true,
+      secure: true,
+      sameSite: "none",
     });
 
     return res
@@ -98,10 +100,12 @@ export const userLogin = async (
     // Create token and store cookie
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-      // domain: "https://frabjous-otter-64aad1.netlify.app",
+      // domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-front-end.vercel.app",
       httpOnly: true,
       signed: true,
+      secure: true,
+      sameSite: "none",
     }); // Remove previous cookie if user is logging in again
 
     /****************************************************************
@@ -119,11 +123,13 @@ export const userLogin = async (
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-      // domain: "https://frabjous-otter-64aad1.netlify.app",
+      // domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-front-end.vercel.app",
       expires,
       httpOnly: true,
       signed: true,
+      secure: true,
+      sameSite: "none",
     });
 
     return res
@@ -180,10 +186,12 @@ export const userLogout = async (
 
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
-      // domain: "https://frabjous-otter-64aad1.netlify.app",
+      // domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-front-end.vercel.app",
       httpOnly: true,
       signed: true,
+      secure: true,
+      sameSite: "none",
     });
 
     return res
