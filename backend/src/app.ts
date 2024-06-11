@@ -85,7 +85,7 @@ app.use(function (req, res, next) {
 
 //app.options("*", cors(corsOptions)); // Enable preflight requests
 
-//app.options("*", cors()); // include before other routes
+app.options("*", cors()); // include before other routes
 
 // app.use((req, res, next) => {
 //   res.setHeader(
