@@ -39,7 +39,8 @@ export const userSignup = async (
     // Create token and store cookie
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com/",
+      // domain: "https://frabjous-otter-64aad1.netlify.app",
       httpOnly: true,
       signed: true,
     }); // Remove previous cookie if user is logging in again
@@ -59,7 +60,8 @@ export const userSignup = async (
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com/",
+      // domain: "https://frabjous-otter-64aad1.netlify.app",
       expires,
       httpOnly: true,
       signed: true,
@@ -96,7 +98,8 @@ export const userLogin = async (
     // Create token and store cookie
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com/",
+      // domain: "https://frabjous-otter-64aad1.netlify.app",
       httpOnly: true,
       signed: true,
     }); // Remove previous cookie if user is logging in again
@@ -116,7 +119,8 @@ export const userLogin = async (
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com/",
+      // domain: "https://frabjous-otter-64aad1.netlify.app",
       expires,
       httpOnly: true,
       signed: true,
@@ -176,7 +180,8 @@ export const userLogout = async (
 
     res.clearCookie(COOKIE_NAME, {
       path: "/",
-      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com",
+      domain: "https://ai-chatbot-backend-31e52d318a56.herokuapp.com/",
+      // domain: "https://frabjous-otter-64aad1.netlify.app",
       httpOnly: true,
       signed: true,
     });
