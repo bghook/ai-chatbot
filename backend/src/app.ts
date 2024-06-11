@@ -10,12 +10,20 @@ const app = express();
 
 // Middleware - functions that have access to the request and response objects
 // app.use(cors({ origin: "http://localhost:5173", credentials: true })); // Adding the server which hosts our app to whitelist
+
 app.use(
   cors({
-    origin: "https://frabjous-otter-64aad1.netlify.app/",
+    origin: "https://ai-chatbot-front-end.vercel.app/",
     credentials: true,
   })
 ); // Adding the server which hosts our app to whitelist
+
+// app.use(
+//   cors({
+//     origin: "https://ai-chatbot-front-end.vercel.app/",
+//     credentials: true,
+//   })
+// ); // Adding the server which hosts our app to whitelist
 
 // app.options("*", cors()); // include before other routes
 
@@ -56,23 +64,23 @@ app.use(
 //   }) // frontend URL
 // ); // Adding the server which hosts our app to whitelist
 
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://ai-chatbot-front-end.vercel.app/"
-  ); // update to match the domain you will make the request from
-  // res.header(
-  //   "Access-Control-Allow-Headers",
-  //   "Origin, X-Requested-With, Content-Type, Accept"
-  // );
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  console.log("Request headers:", req.headers);
-  res.on("finish", () => {
-    console.log("Response headers:", res.getHeaders());
-  });
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://ai-chatbot-front-end.vercel.app/"
+//   ); // update to match the domain you will make the request from
+//   // res.header(
+//   //   "Access-Control-Allow-Headers",
+//   //   "Origin, X-Requested-With, Content-Type, Accept"
+//   // );
+//   res.header("Access-Control-Allow-Credentials", "true");
+//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//   console.log("Request headers:", req.headers);
+//   res.on("finish", () => {
+//     console.log("Response headers:", res.getHeaders());
+//   });
+//   next();
+// });
 
 // const corsOptions = {
 //   origin: "https://ai-chatbot-front-end.vercel.app",
