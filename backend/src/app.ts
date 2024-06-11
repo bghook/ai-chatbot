@@ -12,7 +12,7 @@ const app = express();
 // app.use(cors({ origin: "http://localhost:5173", credentials: true })); // Adding the server which hosts our app to whitelist
 app.use(
   cors({
-    origin: "https://frabjous-otter-64aad1.netlify.app",
+    origin: "https://frabjous-otter-64aad1.netlify.app/",
     credentials: true,
   })
 ); // Adding the server which hosts our app to whitelist
@@ -59,7 +59,7 @@ app.use(
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://ai-chatbot-front-end.vercel.app"
+    "https://ai-chatbot-front-end.vercel.app/"
   ); // update to match the domain you will make the request from
   // res.header(
   //   "Access-Control-Allow-Headers",
