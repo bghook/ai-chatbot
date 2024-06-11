@@ -62,16 +62,28 @@ const app = express();
 //   next();
 // });
 
-const corsOptions = {
-  origin: "https://ai-chatbot-front-end.vercel.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-  allowedHeaders: "Content-Type, Authorization",
-  credentials: true,
-  enablePreflight: true,
-};
+// const corsOptions = {
+//   origin: "https://ai-chatbot-front-end.vercel.app",
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+//   allowedHeaders: "Content-Type, Authorization",
+//   credentials: true,
+//   enablePreflight: true,
+// };
 
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // Enable preflight requests
+// app.use(cors(corsOptions));
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
+//app.options("*", cors(corsOptions)); // Enable preflight requests
 
 //app.options("*", cors()); // include before other routes
 
