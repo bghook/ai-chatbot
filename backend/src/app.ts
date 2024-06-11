@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://ai-chatbot-front-end.vercel.app/",
+    origin: "https://ai-chatbot-front-end.vercel.app",
     credentials: true,
   })
 ); // Adding the server which hosts our app to whitelist
