@@ -9,7 +9,7 @@ const TypingAnim = () => {
         1000,
         "Built with MERN stack",
         1000,
-        "Utilizing OpenAI's GPT-3.5-Turbo model",
+        "Utilizing OpenAI's GPT-3.5 Turbo model",
         1000,
       ]}
       speed={50}

@@ -16,6 +16,9 @@ const Footer = () => {
             fontSize: "30px",
             textAlign: "center",
             padding: "20px",
+            fontFamily: "Arial, sans-serif",
+            color: "#333",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
           }}
         >
           Bryan Hooker
@@ -27,7 +30,7 @@ const Footer = () => {
                 marginLeft: 35,
               }}
               className="nav-link"
-              to={"https://github.com/bghook"}
+              to={"https://bghook.github.io/bh-swe/"}
             >
               Website
             </Link>
