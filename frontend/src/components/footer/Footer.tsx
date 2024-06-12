@@ -17,8 +17,9 @@ const Footer = () => {
             textAlign: "center",
             padding: "20px",
             fontFamily: "Arial, sans-serif",
-            color: "#333",
-            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+            color: "#F8F8FF",
+            borderRadius: 20,
+            boxShadow: "-5px -5px 105px #64f3d5",
           }}
         >
           Bryan Hooker
@@ -28,6 +29,8 @@ const Footer = () => {
                 color: "blue",
                 textDecoration: "underline",
                 marginLeft: 35,
+                borderRadius: 20,
+                boxShadow: "-5px -5px 105px #64f3d5",
               }}
               className="nav-link"
               to={"https://bghook.github.io/bh-swe/"}
@@ -40,6 +43,8 @@ const Footer = () => {
               style={{
                 color: "blue",
                 textDecoration: "underline",
+                borderRadius: 20,
+                boxShadow: "-5px -5px 105px #64f3d5",
               }}
               className="nav-link"
               to={"https://github.com/bghook"}
